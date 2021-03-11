@@ -1,0 +1,38 @@
+<div class="main">
+  <mat-list>
+    <h2>TODOS</h2>
+    <mat-divider class="mb-20"></mat-divider>
+    <mat-list-item *ngFor="let todo of todos">
+      <h3 matLine [ngClass]="{'completed': todo.isCompleted}">{{ todo.description }}</h3>
+      <p mat-line>
+        <span> {{ todo.dueByDate | date }} </span>
+      </p>
+      <button
+        class="action-btn"
+        mat-icon-button
+        (click)="markAsComplete(todo)"
+        title="Mark as Complete"
+        [disabled]="todo.isCompleted"
+      >
+        <mat-icon style="color: green">check_circle</mat-icon>
+      </button>
+      <button
+        class="action-btn"
+        mat-icon-button
+        (click)="updateTodo(todo)"
+        title="Edit todo"
+      >
+        <mat-icon color="primary">edit</mat-icon>
+      </button>
+      <button
+        class="action-btn"
+        mat-icon-button
+        (click)="removeTodo(todo.id)"
+        title="Delete todo"
+      >
+        <mat-icon color="warn">delete</mat-icon>
+      </button>
+      <mat-divider></mat-divider>
+    </mat-list-item>
+  </mat-list>
+</div>
