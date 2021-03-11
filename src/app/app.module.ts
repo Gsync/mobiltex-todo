@@ -46,6 +46,7 @@ import { TodosListComponent } from './todos-list/todos-list.component';
       InMemoryDataService, { dataEncapsulation: false }
     ),
   ],
+  entryComponents: [TodoFormComponent],
   providers: [],
   bootstrap: [AppComponent]
 })
